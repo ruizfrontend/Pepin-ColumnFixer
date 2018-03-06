@@ -12,6 +12,10 @@ rclmng_globals.ux.pepinColFixer = {
     rclmng_globals.ux.pepinColFixer.$tables.each(rclmng_globals.ux.pepinColFixer.initTables)
   },
 
+  clearTables: function($wrap) {
+
+  },
+
   initTables: function() {
     var $table = $(this);
 
@@ -35,23 +39,22 @@ rclmng_globals.ux.pepinColFixer = {
         // The original table
     $table.wrap('<div class="fixedCol-pepin-fixHead"></diiv>');
 
-		// table for the first column fix
-	$wrap.append('<div class="fixedCol-pepin-fixCorner"><div class="fixedCol-pepin-fixCorner-inn"></div></div>')
-		.find('.fixedCol-pepin-fixCorner-inn').append($table.clone());
+  		// table for the first column fix
+  	$wrap.append('<div class="fixedCol-pepin-fixCorner"><div class="fixedCol-pepin-fixCorner-inn"></div></div>')
+  		.find('.fixedCol-pepin-fixCorner-inn').append($table.clone());
 
-		// table for the first row fix
-	$wrap.prepend('<div class="fixedCol-pepin-scroller">')
-		.find('.fixedCol-pepin-scroller')
-			.on('scroll', rclmng_globals.ux.pepinColFixer.scrollEvt)
-			.append($table.clone());
+  		// table for the first row fix
+  	$wrap.prepend('<div class="fixedCol-pepin-scroller">')
+  		.find('.fixedCol-pepin-scroller')
+  			.on('scroll', rclmng_globals.ux.pepinColFixer.scrollEvt)
+  			.append($table.clone());
 
-		// tabla for the left top orner
-	$wrap.prepend('<div class="fixedCol-pepin-fixCol"><div class="fixedCol-pepin-fixCol-inn">')
-		.find('.fixedCol-pepin-fixCol-inn').append($table.clone());
+  		// tabla for the left top orner
+  	$wrap.prepend('<div class="fixedCol-pepin-fixCol"><div class="fixedCol-pepin-fixCol-inn">')
+  		.find('.fixedCol-pepin-fixCol-inn').append($table.clone());
     
-    rclmng_globals.ux.pepinColFixer.resizeTable($wrap);
-    $wrap.find('.fixedCol-pepin-scroller').scroll()
-    rclmng_globals.ux.pepinColFixer.resizeTable($wrap);
+    $wrap.find('.fixedCol-pepin-scroller').scroll();
+    rclmng_globals.ux.resize();
   },
   
   resizeTables: function($wrap) {
