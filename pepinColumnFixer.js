@@ -47,6 +47,10 @@ rclmng_globals.ux.pepinColFixer = {
     $table.wrap('<div class="fixedCol-pepin-scroller"></dov>').parent()
       .on('scroll', rclmng_globals.ux.pepinColFixer.scrollEvt);
 
+    if(fixedRows || fixedCols)
+      $wrap.prepend('<div class="fixedCol-pepin-fixCorner"><div class="fixedCol-pepin-fixCorner-inn">')
+        .find('.fixedCol-pepin-fixCorner-inn').append($table.clone());
+
     if(fixedRows)
       $wrap.prepend('<div class="fixedCol-pepin-fixHead">')
         .find('.fixedCol-pepin-fixHead').append($table.clone());
@@ -57,6 +61,7 @@ rclmng_globals.ux.pepinColFixer = {
     
     rclmng_globals.ux.pepinColFixer.resizeTable($wrap);
     $wrap.find('.fixedCol-pepin-scroller').scroll()
+    rclmng_globals.ux.pepinColFixer.resizeTable($wrap);
   },
   
   resizeTables: function($wrap) {
@@ -74,6 +79,7 @@ rclmng_globals.ux.pepinColFixer = {
 
     var $scroller = $wrap.find('.fixedCol-pepin-scroller');
     var $tableLeft = $wrap.find('.fixedCol-pepin-fixCol');
+    var $tableCorner = $wrap.find('.fixedCol-pepin-fixCorner');
     var $tableCol = $wrap.find('.fixedCol-pepin-fixHead');
     var $barX = $wrap.find('.barX');
     var $barXBottom = $wrap.find('.barXBottom');
@@ -93,7 +99,9 @@ rclmng_globals.ux.pepinColFixer = {
     $scroller.css('height', tableHeight);
     
     $tableCol.css('height', headHeight);
+    $tableCorner.css('height', headHeight);
     $tableLeft.show().css('width', fixedColWidth);
+    $tableCorner.css('width', fixedColWidth);
     $barY.css('padding-top', headHeight);
     $barX.css({
       'padding-left': fixedColWidth,
@@ -101,6 +109,7 @@ rclmng_globals.ux.pepinColFixer = {
     });
     $barXBottom.css('padding-left', fixedColWidth);
     $tableLeft.find('.fixedCol-pepin-fixCol-inn').css('width', tableWidth);
+    $tableCorner.find('.fixedCol-pepin-fixCorner-inn').css('width', fixedColWidth);
 
     if(overFlowX) {
       $wrap.addClass('overFX');
@@ -119,7 +128,6 @@ rclmng_globals.ux.pepinColFixer = {
       $wrap.removeClass('overFY');
       $scroller.css('margin-right', 0);
     }
-
   },
 
   clickBarEvt: function(e){console.log('e')
