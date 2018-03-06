@@ -122,7 +122,7 @@ rclmng_globals.ux.pepinColFixer = {
 
   },
 
-  clickBarEvt: function(e){
+  clickBarEvt: function(e){console.log('e')
     var $bar = $(this);
 
     if(e.type == 'mousemove' && !$bar.hasClass('mouseDown')) return;
@@ -131,7 +131,7 @@ rclmng_globals.ux.pepinColFixer = {
     var $scrollr = $wrap.find('.fixedCol-pepin-scroller');
     var $table = $wrap.find('.fixedCol-pepin-scroller table');
     
-    if($bar.parent().hasClass('barX')) {
+    if($bar.parent().hasClass('barX') || $bar.parent().hasClass('barXBottom')) {
       var scrollX = (e.pageX - $bar.offset().left) / $bar.width();
       $scrollr.scrollLeft(scrollX * ($table.width() - $wrap.width()));
     } else {
