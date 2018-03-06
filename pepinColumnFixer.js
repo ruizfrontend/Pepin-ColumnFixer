@@ -12,7 +12,7 @@ rclmng_globals.ux.pepinColFixer = {
     rclmng_globals.ux.pepinColFixer.$tables.each(rclmng_globals.ux.pepinColFixer.initTables)
   },
 
-  initTables: function() { console.log('int')
+  initTables: function() {
     var $table = $(this);
 
     if(!$table.find('thead').length || !$table.find('tbody').length) {
@@ -59,9 +59,11 @@ rclmng_globals.ux.pepinColFixer = {
       rclmng_globals.ux.pepinColFixer.$tables.each(function() {
         rclmng_globals.ux.pepinColFixer.resizeTable($(this).parents('.fixedCol-pepin-wrap'))
       })
+
+  	rclmng_globals.ux.pepinColFixer.scrollEvt();
   },
 
-  resizeTable: function($wrap) {console.log('resize')
+  resizeTable: function($wrap) {
 
     var uxElmsHeight = 265; // espacio ocupado por barras y navegaciones en paneles
 
@@ -141,7 +143,7 @@ rclmng_globals.ux.pepinColFixer = {
   },
 
   scrollEvt: function() { // event to sync scrolls
-  	console.log('scr')
+
     var $wrap = $(this).parents('.fixedCol-pepin-wrap');
     var $table = $wrap.find('.fixedCol-pepin-scroller table');
     var $scroller = $wrap.find('.fixedCol-pepin-scroller');
