@@ -12,20 +12,13 @@ rclmng_globals.ux.pepinColFixer = {
     rclmng_globals.ux.pepinColFixer.$tables.each(rclmng_globals.ux.pepinColFixer.initTables)
   },
 
-  initTables: function() {
+  initTables: function() { console.log('int')
     var $table = $(this);
 
-    var fixedRows = $table.data('fixedRows') || 1; // por el momento solo adminitos 1 columna o fila fijada, pero opcional
-    var fixedCols = $table.data('fixedCols') || 1;
-
-    if(!(fixedRows || fixedCols)) return; // both rows & cals 0 or false
     if(!$table.find('thead').length || !$table.find('tbody').length) {
       console.error('Make sure your FixedRows tables have a correct thead and tbody, please!');
       return;
     }
-
-    $table.data('fixedRows', fixedRows);
-    $table.data('fixedCols', fixedCols);
 
       // wrapper for all the tables
     var $wrap = $table.wrap('<div class="fixedCol-pepin-wrap"></div>').parent()
@@ -34,30 +27,27 @@ rclmng_globals.ux.pepinColFixer = {
       .append('<div class="barY bar"><div class="barWrap"><div class="barInn"></div></div></div>');
 
     $wrap.find('.barWrap')
-      .mousedown(function(){
-        $(this).addClass('mouseDown')
-      })
-      .mouseup(function(){
-        $(this).removeClass('mouseDown')
-      })
+      .mousedown(function(){ $(this).addClass('mouseDown'); })
+      .mouseup(function(){ $(this).removeClass('mouseDown'); })
       .mousemove(rclmng_globals.ux.pepinColFixer.clickBarEvt)
       .click(rclmng_globals.ux.pepinColFixer.clickBarEvt);
 
-        // real scroll element
-    $table.wrap('<div class="fixedCol-pepin-scroller"></dov>').parent()
-      .on('scroll', rclmng_globals.ux.pepinColFixer.scrollEvt);
+        // The original table
+    $table.wrap('<div class="fixedCol-pepin-fixHead"></diiv>');
 
-    if(fixedRows || fixedCols)
-      $wrap.prepend('<div class="fixedCol-pepin-fixCorner"><div class="fixedCol-pepin-fixCorner-inn">')
-        .find('.fixedCol-pepin-fixCorner-inn').append($table.clone());
+		// table for the first column fix
+	$wrap.append('<div class="fixedCol-pepin-fixCorner"><div class="fixedCol-pepin-fixCorner-inn"></div></div>')
+		.find('.fixedCol-pepin-fixCorner-inn').append($table.clone());
 
-    if(fixedRows)
-      $wrap.prepend('<div class="fixedCol-pepin-fixHead">')
-        .find('.fixedCol-pepin-fixHead').append($table.clone());
+		// table for the first row fix
+	$wrap.prepend('<div class="fixedCol-pepin-scroller">')
+		.find('.fixedCol-pepin-scroller')
+			.on('scroll', rclmng_globals.ux.pepinColFixer.scrollEvt)
+			.append($table.clone());
 
-    if(fixedCols)
-      $wrap.prepend('<div class="fixedCol-pepin-fixCol"><div class="fixedCol-pepin-fixCol-inn">')
-        .find('.fixedCol-pepin-fixCol-inn').append($table.clone());
+		// tabla for the left top orner
+	$wrap.prepend('<div class="fixedCol-pepin-fixCol"><div class="fixedCol-pepin-fixCol-inn">')
+		.find('.fixedCol-pepin-fixCol-inn').append($table.clone());
     
     rclmng_globals.ux.pepinColFixer.resizeTable($wrap);
     $wrap.find('.fixedCol-pepin-scroller').scroll()
@@ -71,7 +61,7 @@ rclmng_globals.ux.pepinColFixer = {
       })
   },
 
-  resizeTable: function($wrap) {
+  resizeTable: function($wrap) {console.log('resize')
 
     var uxElmsHeight = 265; // espacio ocupado por barras y navegaciones en paneles
 
@@ -109,7 +99,7 @@ rclmng_globals.ux.pepinColFixer = {
     });
     $barXBottom.css('padding-left', fixedColWidth);
     $tableLeft.find('.fixedCol-pepin-fixCol-inn').css('width', tableWidth);
-    $tableCorner.find('.fixedCol-pepin-fixCorner-inn').css('width', fixedColWidth);
+    $tableCorner.find('.fixedCol-pepin-fixCorner-inn').css('width', tableWidth);
 
     if(overFlowX) {
       $wrap.addClass('overFX');
@@ -130,7 +120,7 @@ rclmng_globals.ux.pepinColFixer = {
     }
   },
 
-  clickBarEvt: function(e){console.log('e')
+  clickBarEvt: function(e){
     var $bar = $(this);
 
     if(e.type == 'mousemove' && !$bar.hasClass('mouseDown')) return;
@@ -151,6 +141,7 @@ rclmng_globals.ux.pepinColFixer = {
   },
 
   scrollEvt: function() { // event to sync scrolls
+  	console.log('scr')
     var $wrap = $(this).parents('.fixedCol-pepin-wrap');
     var $table = $wrap.find('.fixedCol-pepin-scroller table');
     var $scroller = $wrap.find('.fixedCol-pepin-scroller');
