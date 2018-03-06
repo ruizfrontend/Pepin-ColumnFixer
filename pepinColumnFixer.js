@@ -6,18 +6,26 @@ rclmng_globals.ux.pepinColFixer = {
   $tables: [],
 
   init: function(e) {
-    rclmng_globals.ux.pepinColFixer.$tables = $('.fixedCol-pepin'); // reset $tables
+    rclmng_globals.ux.pepinColFixer.$tables = $('.fixedCol-pepin:not(.loaded)'); // reset $tables
     if(rclmng_globals.ux.pepinColFixer.$tables.length == 0) return;
 
     rclmng_globals.ux.pepinColFixer.$tables.each(rclmng_globals.ux.pepinColFixer.initTables)
   },
 
-  clearTables: function($wrap) {
+  clearTables: function() {
+    $('.fixedCol-pepin.loaded').each(function(){
+      var $table = $(this)
+        .removeClass('loaded')
+        .data('height', null);;
+      var $wrap = $table.parents('.fixedCol-pepin-wrap');
 
+      $wrap.after($table);
+      $wrap.remove();
+    })
   },
 
   initTables: function() {
-    var $table = $(this);
+    var $table = $(this).addClass('loaded');
 
     if(!$table.find('thead').length || !$table.find('tbody').length) {
       console.error('Make sure your FixedRows tables have a correct thead and tbody, please!');
@@ -53,11 +61,13 @@ rclmng_globals.ux.pepinColFixer = {
   	$wrap.prepend('<div class="fixedCol-pepin-fixCol"><div class="fixedCol-pepin-fixCol-inn">')
   		.find('.fixedCol-pepin-fixCol-inn').append($table.clone());
     
+    rclmng_globals.ux.resize();
     $wrap.find('.fixedCol-pepin-scroller').scroll();
     rclmng_globals.ux.resize();
   },
   
   resizeTables: function($wrap) {
+
     if(rclmng_globals.ux.pepinColFixer.$tables.length) 
       rclmng_globals.ux.pepinColFixer.$tables.each(function() {
         rclmng_globals.ux.pepinColFixer.resizeTable($(this).parents('.fixedCol-pepin-wrap'))
@@ -67,10 +77,7 @@ rclmng_globals.ux.pepinColFixer = {
   },
 
   resizeTable: function($wrap) {
-
-    var uxElmsHeight = 265; // espacio ocupado por barras y navegaciones en paneles
-
-    var $table = $wrap.find('.fixedCol-pepin-scroller table');
+    var $table = $wrap.find('.fixedCol-pepin-fixHead table');
 
     var $scroller = $wrap.find('.fixedCol-pepin-scroller');
     var $tableLeft = $wrap.find('.fixedCol-pepin-fixCol');
@@ -80,14 +87,10 @@ rclmng_globals.ux.pepinColFixer = {
     var $barXBottom = $wrap.find('.barXBottom');
     var $barY = $wrap.find('.barY');
 
-      // are there overflows?
-    var overFlowX = $table.width() > $wrap.width();
-    var overFlowY = $table.height() > $wrap.height();
-
       // calculate sizes
     var tableWidth = $table.outerWidth();
-    var tableHeight = $(window).height() - uxElmsHeight;
-
+    var tableHeight = $table.data('height');
+    
     var headHeight = $table.find('thead').height();
     var fixedColWidth = $table.find('tbody td:eq(0)').outerWidth();
 
@@ -106,7 +109,7 @@ rclmng_globals.ux.pepinColFixer = {
     $tableLeft.find('.fixedCol-pepin-fixCol-inn').css('width', tableWidth);
     $tableCorner.find('.fixedCol-pepin-fixCorner-inn').css('width', tableWidth);
 
-    if(overFlowX) {
+    if($table.width() > $wrap.width()) {
       $wrap.addClass('overFX');
       $scroller.css('margin-bottom',  -1 * ($scroller[0].offsetHeight - $scroller[0].clientHeight));
 
@@ -115,7 +118,7 @@ rclmng_globals.ux.pepinColFixer = {
       $scroller.css('margin-bottom', 0);
     }
 
-    if(overFlowY) {
+    if($table.height() > $wrap.height()) {
       $wrap.addClass('overFY');
       $scroller.css('margin-right', -1 * ($scroller[0].offsetWidth - $scroller[0].clientWidth));
 
@@ -148,18 +151,16 @@ rclmng_globals.ux.pepinColFixer = {
   scrollEvt: function() { // event to sync scrolls
 
     var $wrap = $(this).parents('.fixedCol-pepin-wrap');
-    var $table = $wrap.find('.fixedCol-pepin-scroller table');
+    var $table = $wrap.find('.fixedCol-pepin-fixHead table'); // the original table
     var $scroller = $wrap.find('.fixedCol-pepin-scroller');
     
     $wrap.find('.fixedCol-pepin-fixCol').scrollTop($scroller.scrollTop())
     $wrap.find('.fixedCol-pepin-fixHead').scrollLeft($scroller.scrollLeft())
 
-    var uxElmsHeight = 265; // espacio ocupado por barras y navegaciones en paneles
-
     var $barX = $wrap.find('.barX, .barXBottom');
     var $barY = $wrap.find('.barY');
 
-    var barYMaxH = $(window).height() - uxElmsHeight - $table.find('thead').height();
+    var barYMaxH = $wrap.height() - $table.find('thead').height();
     var barYH = barYMaxH * $wrap.height() / $table.height();
     
     $barY.find('.barInn').css({
