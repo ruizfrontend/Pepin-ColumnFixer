@@ -28,7 +28,7 @@ rclmng_globals.ux.pepinColFixer = {
     var $table = $(this).addClass('loaded');
 
     if(!$table.find('thead').length || !$table.find('tbody').length) {
-      console.error('Make sure your FixedRows tables have a correct thead and tbody, please!');
+      // console.error('Make sure your FixedRows tables have a correct thead and tbody, please!');
       return;
     }
 
