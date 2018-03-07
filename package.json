@@ -1,0 +1,17 @@
+{
+  "name": "pepincolumnfixed",
+  "version": "0.0.1",
+  "description": "jQuery plugin to Fix headers and columns in your tables",
+  "main": "dist/js/pepinFixXolumn.js",
+  "scripts": {
+    "test": "karma rn karma.config.js"
+  },
+  "keywords": [
+    "tables",
+    "jquery",
+    "headers",
+    "columns"
+  ],
+  "author": "hola@davidruizlopez.es",
+  "license": "MIT"
+}
