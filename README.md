@@ -1,6 +1,8 @@
 # Pepin Column Fixer
 Simplify creatin fixed headers or columns with jQuery
 
+![Sample](https://raw.githubusercontent.com/ruizfrontend/Pepin-ColumnFixer/master/docs/sample.gif)
+
 Allows:
 - Automatic detection of tables in the page with classes and data attributes
 - Api to create programatically new tables
