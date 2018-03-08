@@ -2,191 +2,239 @@
 
 (function ($) {
 
-    $.fn.pepinColFixer = (function() {
+    var pluginName = 'pepinColFixer';
 
-        var baseSettings = {
-            baseClass: 'fixedCol-pepin',
-        }
-        
-        var $tables = [];
+    var defaults = {
+        autoload: true,
 
-        return {
-            init: init
-        }
+        baseClass: 'pepinColFixer',
+        blockAutoloadClass: 'pcf-not-auto',
+        loadedClass: 'pcf-loaded',
 
-        function init (e) {
-            this.$tables = $('.fixedCol-pepin:not(.loaded)'); // reset $tables
-            if(this.$tables.length == 0) return;
+            // TODO: use this and not hardcoded => css problem
+        wrapClass: 'pcf-wrap'
+    };
 
-            this.$tables.each(this.initTables)
-        };
+        // allow overwrite defaults options $.pepinColFixer(CustomOptions)
+        // Do it before initialization any table (and before $.ready() foºr autoload) otherwise everything will broke
+        // https://stackoverflow.com/questions/4901241/how-to-enable-global-settings-changes-in-jquery-plugin
+    $.pepinColFixer = function(options) {
+        $.extend(defaults, options);
+    }
 
-        var clearTables = function() {
-            $('.fixedCol-pepin.loaded').each(function(){
-                var $table = $(this)
-                    .removeClass('loaded')
-                    .data('height', null);;
-                var $wrap = $table.parents('.fixedCol-pepin-wrap');
+        // try autoload on document ready
+    $(function(){
+        if(!defaults.autoload) return;
 
-                $wrap.after($table);
-                $wrap.remove();
-          })
-        };
+        $('.' + defaults.baseClass + ':not(.' + defaults.blockAutoloadClass + ')').pepinColFixer();
+    });
 
-        var initTables = function() {
-            var $table = $(this).addClass('loaded');
+        // plugin structure based on https://stackoverflow.com/a/28396546
+    $.fn.pepinColFixer = function(command, options) {
 
-            if(!$table.find('thead').length || !$table.find('tbody').length) {
-                // console.error('Make sure your FixedRows tables have a correct thead and tbody, please!');
-                return;
-            }
-
-              // wrapper for all the tables
-            var $wrap = $table.wrap('<div class="fixedCol-pepin-wrap"></div>').parent()
-                .append('<div class="barX bar"><div class="barWrap"><div class="barInn"></div></div></div>')
-                .append('<div class="barXBottom bar"><div class="barWrap"><div class="barInn"></div></div></div>')
-                .append('<div class="barY bar"><div class="barWrap"><div class="barInn"></div></div></div>');
-
-            $wrap.find('.barWrap')
-                .mousedown(function(){ $(this).addClass('mouseDown'); })
-                .mouseup(function(){ $(this).removeClass('mouseDown'); })
-                .mousemove(pepinColFixer.clickBarEvt)
-                .click(pepinColFixer.clickBarEvt);
-
-                // The original table
-            $table.wrap('<div class="fixedCol-pepin-fixHead"></diiv>');
-
-                // table for the first column fix
-            $wrap.append('<div class="fixedCol-pepin-fixCorner"><div class="fixedCol-pepin-fixCorner-inn"></div></div>')
-                .find('.fixedCol-pepin-fixCorner-inn').append($table.clone());
-
-                // table for the first row fix
-            $wrap.prepend('<div class="fixedCol-pepin-scroller">')
-                .find('.fixedCol-pepin-scroller')
-                .on('scroll', pepinColFixer.scrollEvt)
-                .append($table.clone());
-
-                // tabla for the left top orner
-            $wrap.prepend('<div class="fixedCol-pepin-fixCol"><div class="fixedCol-pepin-fixCol-inn">')
-                .find('.fixedCol-pepin-fixCol-inn').append($table.clone());
-
-            resize();
+        return this.each(function () {
             
-            $wrap.find('.fixedCol-pepin-scroller').scroll();
-        };
+                // check for an existing instance associated to the element
+            var instance = $.data(this, pluginName);
 
-        var resizeTables = function($wrap) {
+            if (instance) {
+                if(instance[command]) instance[command].apply(this, options);
+                else $.error('Method ' + options + ' does not exist on ' + pluginName);
 
-            if(pepinColFixer.$tables.length) 
-                pepinColFixer.$tables.each(function() {
-                pepinColFixer.resizeTable($(this).parents('.fixedCol-pepin-wrap'))
+            } else {
+                var initialSettings = (command == 'init' && $.isPlainObject(options)) ? options :
+                    ($.isPlainObject(command) ? command : null)
+
+                    // intialize the instance
+                var plugin = PepinColFixer(this, initialSettings);//new Plugin(this, options);
+
+                    // Store the plugin instance on the element
+                $.data(this, pluginName, plugin);
+                
+                return plugin;
+            }
+        });
+    }
+
+    function PepinColFixer (elm, initialSettings) {
+        
+        var $table = $(elm);
+
+        if($table.hasClass(defaults.loadedClass)) {
+            console.info(pluginName + ' instance already bootstraped. Exit!');
+            return;
+        }
+
+        var $elms = initiateDOM(); // return reference to the elements in the widget
+
+        var tableSettings = {
+            width: $table.data('pcf-width') || $elms.wrap.outerWidth(),
+            height: $table.data('pcf-height') || $elms.wrap.outerHeight(),
+            colsFixed: parseInt($table.data('pcf-colsFixed')) || 1,
+            rowsFixed: parseInt($table.data('pcf-rowsFixed')) || 1
+        }
+
+        $.extend(tableSettings, initialSettings);
+
+        updateSize();
+        $elms.scroller.scroll();
+
+            // interface
+        return {
+            refresh: updateSize,
+            revert: revert
+        }
+
+
+        function scrollEvt () { // sync scrolls
+
+            $elms.fixCol.scrollTop($elms.scroller.scrollTop())
+            $elms.fixHead.scrollLeft($elms.scroller.scrollLeft())
+
+            var $barX = $elms.wrap.find('.barX, .barXBottom');
+            var $barY = $elms.wrap.find('.pcf-barY');
+
+            var barYMaxH = $elms.wrap.height() - $table.find('thead').height();
+            var barYH = barYMaxH * $elms.wrap.height() / $table.height();
+
+            $elms.barY.find('.pcf-barInn').css({
+                height: barYH,
+                top: (barYMaxH - barYH) * ($elms.scroller.scrollTop() / ($table.height() - $elms.wrap.height()))
             })
 
-            pepinColFixer.scrollEvt();
-        };
+            var barXMaxW = $elms.wrap.width() - $table.find('tbody td:eq(0)').outerWidth();
+            var barXW = barXMaxW * $elms.wrap.width() / $table.width();
 
-        var resizeTable = function($wrap) {
-            var $table = $wrap.find('.fixedCol-pepin-fixHead table');
+            $elms.barX.add($elms.barXBottom).find('.pcf-barInn').css({
+                width: barXW,
+                left: (barXMaxW - barXW) * ($elms.scroller.scrollLeft() / ($table.width() - $elms.wrap.width()))
+            })
+        }
 
-            var $scroller = $wrap.find('.fixedCol-pepin-scroller');
-            var $tableLeft = $wrap.find('.fixedCol-pepin-fixCol');
-            var $tableCorner = $wrap.find('.fixedCol-pepin-fixCorner');
-            var $tableCol = $wrap.find('.fixedCol-pepin-fixHead');
-            var $barX = $wrap.find('.barX');
-            var $barXBottom = $wrap.find('.barXBottom');
-            var $barY = $wrap.find('.barY');
-
-                // calculate sizes
-            var tableWidth = $table.outerWidth();
-            var tableHeight = $table.data('height');
-
-            var headHeight = $table.find('thead').height();
-            var fixedColWidth = $table.find('tbody td:eq(0)').outerWidth();
-
-            $scroller.css('height', tableHeight);
-
-            $tableCol.css('height', headHeight);
-            $tableCorner.css('height', headHeight);
-            $tableLeft.show().css('width', fixedColWidth);
-            $tableCorner.css('width', fixedColWidth);
-            $barY.css('padding-top', headHeight);
-            $barX.css({
-                'padding-left': fixedColWidth,
-                'top': headHeight
-            });
-            $barXBottom.css('padding-left', fixedColWidth);
-            $tableLeft.find('.fixedCol-pepin-fixCol-inn').css('width', tableWidth);
-            $tableCorner.find('.fixedCol-pepin-fixCorner-inn').css('width', tableWidth);
-
-            if($table.width() > $wrap.width()) {
-                $wrap.addClass('overFX');
-                $scroller.css('margin-bottom',  -1 * ($scroller[0].offsetHeight - $scroller[0].clientHeight));
-
-            } else {
-                $wrap.removeClass('overFX');
-                $scroller.css('margin-bottom', 0);
-            }
-
-            if($table.height() > $wrap.height()) {
-                $wrap.addClass('overFY');
-                $scroller.css('margin-right', -1 * ($scroller[0].offsetWidth - $scroller[0].clientWidth));
-
-            } else {
-                $wrap.removeClass('overFY');
-                $scroller.css('margin-right', 0);
-            }
-        };
-
-        var clickBarEvt = function(e) {
+            // scrolblar event
+        function clickBarEvt (e) {
             var $bar = $(this);
 
             if(e.type == 'mousemove' && !$bar.hasClass('mouseDown')) return;
 
-            var $wrap = $(this).parents('.fixedCol-pepin-wrap');
-            var $scrollr = $wrap.find('.fixedCol-pepin-scroller');
-            var $table = $wrap.find('.fixedCol-pepin-scroller table');
-
-            if($bar.parent().hasClass('barX') || $bar.parent().hasClass('barXBottom')) {
+            if($bar.parent().hasClass('pcf-barX') || $bar.parent().hasClass('pcf-barXBottom')) {
                 var scrollX = (e.pageX - $bar.offset().left) / $bar.width();
-                $scrollr.scrollLeft(scrollX * ($table.width() - $wrap.width()));
+                $elms.scroller.scrollLeft(scrollX * ($table.width() - $elms.wrap.width()));
             } else {
                 var scrollY = (e.pageY - $bar.offset().top) / $bar.height();
-                $scrollr.scrollTop(scrollY * ($table.height() - $wrap.height()));
+                $elms.scroller.scrollTop(scrollY * ($table.height() - $elms.wrap.height()));
             }
 
             return false;
         };
 
-        var scrollEvt = function() { // event to sync scrolls
+            // create the required HTML and return it to easy access
+        function initiateDOM () {
+            $table.addClass(defaults.loadedClass);
 
-            var $wrap = $(this).parents('.fixedCol-pepin-wrap');
-            var $table = $wrap.find('.fixedCol-pepin-fixHead table'); // the original table
-            var $scroller = $wrap.find('.fixedCol-pepin-scroller');
+              // wrapper for all the tables
+            var $wrap = $table.wrap('<div class="pcf-wrap"></div>').parent()
+                .append('<div class="pcf-barX pcf-bar"><div class="pcf-barWrap"><div class="pcf-barInn"></div></div></div>')
+                .append('<div class="pcf-barXBottom pcf-bar"><div class="pcf-barWrap"><div class="pcf-barInn"></div></div></div>')
+                .append('<div class="pcf-barY pcf-bar"><div class="pcf-barWrap"><div class="pcf-barInn"></div></div></div>');
 
-            $wrap.find('.fixedCol-pepin-fixCol').scrollTop($scroller.scrollTop())
-            $wrap.find('.fixedCol-pepin-fixHead').scrollLeft($scroller.scrollLeft())
+            $wrap.find('.pcf-barWrap')
+                .mousedown(function(){ $(this).addClass('mouseDown'); })
+                .mouseup(function(){ $(this).removeClass('mouseDown'); })
+                .mousemove(clickBarEvt)
+                .click(clickBarEvt);
 
-            var $barX = $wrap.find('.barX, .barXBottom');
-            var $barY = $wrap.find('.barY');
+                // The original table => to enable 
+           var $fixHead = $table.wrap('<div class="pcf-fixHead"></diiv>').parent();
 
-            var barYMaxH = $wrap.height() - $table.find('thead').height();
-            var barYH = barYMaxH * $wrap.height() / $table.height();
+                // table for the first column fix
+            $wrap.append('<div class="pcf-fixCorner"><div class="pcf-fixCorner-inn"></div></div>')
+                .find('.pcf-fixCorner-inn').append($table.clone());
 
-            $barY.find('.barInn').css({
-                height: barYH,
-                top: (barYMaxH - barYH) * ($scroller.scrollTop() / ($table.height() - $wrap.height()))
-            })
+                // table for the first row fix
+            $wrap.prepend('<div class="pcf-scroller">')
+                .find('.pcf-scroller')
+                .on('scroll', scrollEvt)
+                .append($table.clone());
 
-            var barXMaxW = $wrap.width() - $table.find('tbody td:eq(0)').outerWidth();
-            var barXW = barXMaxW * $wrap.width() / $table.width();
+                // tabla for the left top orner
+            $wrap.prepend('<div class="pcf-fixCol"><div class="pcf-fixCol-inn">')
+                .find('.pcf-fixCol-inn').append($table.clone());
 
-            $barX.find('.barInn').css({
-                width: barXW,
-                left: (barXMaxW - barXW) * ($scroller.scrollLeft() / ($table.width() - $wrap.width()))
-            })
+            return {
+                    // wraper
+                wrap: $wrap,
+
+                    // tables
+                fixHead: $fixHead,
+                scroller: $wrap.find('.pcf-scroller'),
+                fixCol: $wrap.find('.pcf-fixCol'),
+                fixCorner: $wrap.find('.pcf-fixCorner'),
+
+                    // scroll bars
+                barX: $wrap.find('.pcf-barX'),
+                barXBottom: $wrap.find('.pcf-barXBottom'),
+                barY: $wrap.find('.pcf-barY'),
+            }
         }
-    })();
 
-    console.log($.fn.pepinColFixer)
+            // reset the table to it's initial staet
+        function revert() {
+            $table.removeClass(defaults.loadedClass);
+
+            var $wrap = $table.parents('.fixedCol-pepin-wrap');
+
+            $wrap.after($table);
+            $wrap.remove();
+        };
+
+
+        function updateSize($wrap) {
+
+                // calculate sizes
+            var tableWidth = tableSettings.width;
+            var tableHeight = tableSettings.height;
+
+            var headHeight = $table.find('thead').height(); /// TODO => fix th number of columns fro the settings
+            console.log(headHeight)
+            var fixedColWidth = $table.find('tbody td:eq(0)').outerWidth();
+
+            $elms.wrap.css('width', tableWidth);
+            $elms.wrap.css('height', tableHeight);
+            $elms.scroller.css('height', tableHeight);
+
+            $elms.fixHead.css('height', headHeight);
+            $elms.fixCorner.css('height', headHeight);
+            $elms.fixCol.show().css('width', fixedColWidth);
+            $elms.fixCorner.css('width', fixedColWidth);
+            $elms.barY.css('padding-top', headHeight);
+            $elms.barX.css({
+                'padding-left': fixedColWidth,
+                'top': headHeight
+            });
+            $elms.barXBottom.css('padding-left', fixedColWidth);
+            $elms.fixCol.find('.pcf-fixCol-inn').css('width', tableWidth);
+            $elms.fixCorner.find('.pcf-fixCorner-inn').css('width', tableWidth);
+
+            if($table.width() > $elms.wrap.width()) {
+                $elms.wrap.addClass('overFX');
+                $elms.scroller.css('margin-bottom',  -1 * ($elms.scroller[0].offsetHeight - $elms.scroller[0].clientHeight));
+
+            } else {
+                $elms.wrap.removeClass('overFX');
+                $elms.scroller.css('margin-bottom', 0);
+            }
+
+            if($table.height() > $elms.wrap.height()) {
+                $elms.wrap.addClass('overFY');
+                $elms.scroller.css('margin-right', -1 * ($elms.scroller[0].offsetWidth - $elms.scroller[0].clientWidth));
+
+            } else {
+                $elms.wrap.removeClass('overFY');
+                $elms.scroller.css('margin-right', 0);
+            }
+        };
+    };
+
 
 }(jQuery));
