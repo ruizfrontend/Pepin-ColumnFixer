@@ -5,10 +5,10 @@
   .pcf-scroller { overflow: auto; }
   .pcf-fixHead, .pcf-fixCol, .pcf-fixCorner {
       overflow: hidden; position: absolute; top: 0; left: 0; }
-  .pcf-fixHead { width: 100%; background: white; }
-  .pcf-fixCol { height: 100%; background: #F8F9FB; }
-    .pcf-fixHead table, .pcf-fixCol table { overflow: hidden; }
   .pcf-fixCorner { background: white; }
+  .pcf-fixCol { height: 100%; background: white; }
+  .pcf-fixHead { width: 100%; background: white; }
+    .pcf-fixHead table, .pcf-fixCol table { overflow: hidden; }
 
 .pcf-wrap .pcf-bar { position: absolute; width: 100%; height: 100%; top: 0; left: 0; display: none; opacity: 0.8; }
   .pcf-wrap .pcf-barWrap { background: #F1F3F2; height: 100%; position: relative; width: 100%; }
