@@ -1,0 +1,22 @@
+
+		  /* fixedCol-pepin & panels*/
+.pcf-wrap { position: relative; overflow: hidden; }
+    .pcf-wrap table { margin: 0; padding: 0; display: table; padding-right: 20px; }
+  .pcf-scroller { overflow: auto; }
+  .pcf-fixHead, .pcf-fixCol, .pcf-fixCorner {
+      overflow: hidden; position: absolute; top: 0; left: 0; }
+  .pcf-fixHead { width: 100%; background: white; }
+  .pcf-fixCol { height: 100%; background: #F8F9FB; }
+    .pcf-fixHead table, .pcf-fixCol table { overflow: hidden; }
+  .pcf-fixCorner { background: white; }
+
+.pcf-wrap .pcf-bar { position: absolute; width: 100%; height: 100%; top: 0; left: 0; display: none; opacity: 0.8; }
+  .pcf-wrap .pcf-barWrap { background: #F1F3F2; height: 100%; position: relative; width: 100%; }
+  .pcf-wrap .pcf-barInn { background: #909994; position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+.pcf-wrap .pcf-barX { top: 0; height: 12px; }
+.pcf-wrap .pcf-barXBottom { top: initial; bottom: 0; height: 12px; }
+.pcf-wrap .pcf-barY { left: initial; right: 0; width: 12px; }
+
+.pcf-wrap.overFX .pcf-barX { display: block; }
+.pcf-wrap.overFX .pcf-barXBottom { display: block; }
+.pcf-wrap.overFY .pcf-barY { display: block; }
