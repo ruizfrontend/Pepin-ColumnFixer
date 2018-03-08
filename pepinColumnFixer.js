@@ -50,7 +50,7 @@
 
                     // Store the plugin instance on the element
                 $.data(this, pluginName, plugin);
-                
+
                 return plugin;
             }
         });
@@ -59,6 +59,7 @@
     function PepinColFixer (elm, initialSettings) {
         
         var $table = $(elm);
+        var instaceSettings = initialSettings;
 
         if($table.hasClass(defaults.loadedClass)) {
             console.info(pluginName + ' instance already bootstraped. Exit!');
@@ -68,14 +69,14 @@
         var $elms = initiateDOM(); // return reference to the elements in the widget
 
         var tableSettings = {
-            width: $table.data('pcf-width') || $elms.wrap.outerWidth(),
-            height: $table.data('pcf-height') || $elms.wrap.outerHeight(),
             colsFixed: parseInt($table.data('pcf-colsFixed')) || 1,
             rowsFixed: parseInt($table.data('pcf-rowsFixed')) || 1
         }
 
-        $.extend(tableSettings, initialSettings);
+        $.extend(tableSettings, instaceSettings);
 
+        var tableSizes = processSizes();
+        
         updateSize();
         $elms.scroller.scroll();
 
@@ -85,6 +86,18 @@
             revert: revert
         }
 
+
+        function processSizes() {
+            $elms.wrap.css({width: 'auto', height: 'auto'});
+
+            var sizes = {
+                width: $table.data('pcf-width') || $elms.wrap.outerWidth(),
+                height: $table.data('pcf-height') || $elms.wrap.outerHeight()
+            };
+            console.log(sizes)
+
+            return $.extend(sizes, instaceSettings)
+        }
 
         function scrollEvt () { // sync scrolls
 
@@ -130,6 +143,12 @@
 
             // create the required HTML and return it to easy access
         function initiateDOM () {
+
+            var $tableClone = $table.clone()
+                .removeAttr('id')
+                .removeClass(defaults.baseClass)
+                .addClass(defaults.baseClass + '-clon');
+
             $table.addClass(defaults.loadedClass);
 
               // wrapper for all the tables
@@ -149,17 +168,17 @@
 
                 // table for the first column fix
             $wrap.append('<div class="pcf-fixCorner"><div class="pcf-fixCorner-inn"></div></div>')
-                .find('.pcf-fixCorner-inn').append($table.clone());
+                .find('.pcf-fixCorner-inn').append($tableClone.clone());
 
                 // table for the first row fix
             $wrap.prepend('<div class="pcf-scroller">')
                 .find('.pcf-scroller')
                 .on('scroll', scrollEvt)
-                .append($table.clone());
+                .append($tableClone.clone());
 
                 // tabla for the left top orner
             $wrap.prepend('<div class="pcf-fixCol"><div class="pcf-fixCol-inn">')
-                .find('.pcf-fixCol-inn').append($table.clone());
+                .find('.pcf-fixCol-inn').append($tableClone.clone());
 
             return {
                     // wraper
@@ -191,12 +210,13 @@
 
         function updateSize($wrap) {
 
+            tableSizes = processSizes();
+
                 // calculate sizes
-            var tableWidth = tableSettings.width;
-            var tableHeight = tableSettings.height;
+            var tableWidth = tableSizes.width;
+            var tableHeight = tableSizes.height;
 
             var headHeight = $table.find('thead').height(); /// TODO => fix th number of columns fro the settings
-            console.log(headHeight)
             var fixedColWidth = $table.find('tbody td:eq(0)').outerWidth();
 
             $elms.wrap.css('width', tableWidth);
