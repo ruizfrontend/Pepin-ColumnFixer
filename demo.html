@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pepin ColumnFixer Demo page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+		crossorigin="anonymous"></script>
+	<script src="./pepinColumnFixer.js"></script>
+	<script>
+$(function(){
+	$('table').pepinColFixer.init();
+})
+	</script>
+</head>
+<body>
+
+	<table class="table" style="text-align:center pepin-column-fix" data-pcf-width="500"  data-pcf-height="800">
+		<thead>
+			<tr style="background:#ececec; vertical-align:top;">
+				<th>Country</th>
+				<th>Both sexes<br>rank</th>
+				<th>Both sexes life<br>expectancy</th>
+				<th>Female<br>rank</th>
+				<th>Female life<br>expectancy</th>
+				<th>Male<br>rank</th>
+				<th>Male life<br>expectancy</th>
+				<th>Both sexes<br>rank (HALE)</th>
+				<th>Both sexes life<br>expectancy (HALE)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td align="left">
+					
+						<img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/23px-Flag_of_Japan.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>1</td>
+				<td>83.7</td>
+				<td>1</td>
+				<td>86.8</td>
+				<td>6</td>
+				<td>80.5</td>
+				<td>1</td>
+				<td>74.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/16px-Flag_of_Switzerland.svg.png" width="16" height="16" >&nbsp;&nbsp;</td>
+				<td>2</td>
+				<td>83.4</td>
+				<td>6</td>
+				<td>85.3</td>
+				<td>1</td>
+				<td>81.3</td>
+				<td>4</td>
+				<td>73.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/23px-Flag_of_Singapore.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>3</td>
+				<td>83.1</td>
+				<td>2</td>
+				<td>86.1</td>
+				<td>10</td>
+				<td>80.0</td>
+				<td>2</td>
+				<td>73.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/23px-Flag_of_Australia.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>4</td>
+				<td>82.8</td>
+				<td>7</td>
+				<td>84.8</td>
+				<td>3</td>
+				<td>80.9</td>
+				<td>15</td>
+				<td>71.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/23px-Flag_of_Spain.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>4</td>
+				<td>82.8</td>
+				<td>3</td>
+				<td>85.5</td>
+				<td>9</td>
+				<td>80.1</td>
+				<td>9</td>
+				<td>72.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/21px-Flag_of_Iceland.svg.png" width="21" height="15" >&nbsp;</td>
+				<td>6</td>
+				<td>82.7</td>
+				<td>10</td>
+				<td>84.1</td>
+				<td>2</td>
+				<td>81.2</td>
+				<td>7</td>
+				<td>72.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/23px-Flag_of_Italy.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>6</td>
+				<td>82.7</td>
+				<td>7</td>
+				<td>84.8</td>
+				<td>6</td>
+				<td>80.5</td>
+				<td>5</td>
+				<td>72.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/21px-Flag_of_Israel.svg.png" width="21" height="15" >&nbsp;</td>
+				<td>8</td>
+				<td>82.5</td>
+				<td>9</td>
+				<td>84.3</td>
+				<td>5</td>
+				<td>80.6</td>
+				<td>5</td>
+				<td>72.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/23px-Flag_of_Sweden.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>9</td>
+				<td>82.4</td>
+				<td>12</td>
+				<td>84.0</td>
+				<td>4</td>
+				<td>80.7</td>
+				<td>12</td>
+				<td>72.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/23px-Flag_of_France.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>9</td>
+				<td>82.4</td>
+				<td>5</td>
+				<td>85.4</td>
+				<td>16</td>
+				<td>79.4</td>
+				<td>8</td>
+				<td>72.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/23px-Flag_of_South_Korea.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>11</td>
+				<td>82.3</td>
+				<td>3</td>
+				<td>85.5</td>
+				<td>20</td>
+				<td>78.8</td>
+				<td>3</td>
+				<td>73.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/c/cf/Flag_of_Canada.svg/23px-Flag_of_Canada.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>12</td>
+				<td>82.2</td>
+				<td>10</td>
+				<td>84.1</td>
+				<td>8</td>
+				<td>80.2</td>
+				<td>10</td>
+				<td>72.3</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/da/Flag_of_Luxembourg.svg/23px-Flag_of_Luxembourg.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>13</td>
+				<td>82.0</td>
+				<td>12</td>
+				<td>84.0</td>
+				<td>13</td>
+				<td>79.8</td>
+				<td>17</td>
+				<td>71.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/23px-Flag_of_the_Netherlands.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>14</td>
+				<td>81.9</td>
+				<td>20</td>
+				<td>83.6</td>
+				<td>10</td>
+				<td>80.0</td>
+				<td>11</td>
+				<td>72.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/21px-Flag_of_Norway.svg.png" width="21" height="15" >&nbsp;</td>
+				<td>15</td>
+				<td>81.8</td>
+				<td>17</td>
+				<td>83.7</td>
+				<td>13</td>
+				<td>79.8</td>
+				<td>12</td>
+				<td>72.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Malta.svg/23px-Flag_of_Malta.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>16</td>
+				<td>81.7</td>
+				<td>17</td>
+				<td>83.7</td>
+				<td>15</td>
+				<td>79.7</td>
+				<td>18</td>
+				<td>71.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/23px-Flag_of_New_Zealand.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>17</td>
+				<td>81.6</td>
+				<td>26</td>
+				<td>83.3</td>
+				<td>10</td>
+				<td>80.0</td>
+				<td>19</td>
+				<td>71.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/23px-Flag_of_Austria.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>18</td>
+				<td>81.5</td>
+				<td>14</td>
+				<td>83.9</td>
+				<td>19</td>
+				<td>79.0</td>
+				<td>12</td>
+				<td>72.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/23px-Flag_of_Ireland.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>19</td>
+				<td>81.4</td>
+				<td>23</td>
+				<td>83.4</td>
+				<td>16</td>
+				<td>79.4</td>
+				<td>20</td>
+				<td>71.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/23px-Flag_of_the_United_Kingdom.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>20</td>
+				<td>81.2</td>
+				<td>27</td>
+				<td>83.0</td>
+				<td>16</td>
+				<td>79.4</td>
+				<td>21</td>
+				<td>71.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/23px-Flag_of_Belgium_%28civil%29.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>21</td>
+				<td>81.1</td>
+				<td>22</td>
+				<td>83.5</td>
+				<td>22</td>
+				<td>78.6</td>
+				<td>26</td>
+				<td>71.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/23px-Flag_of_Finland.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>21</td>
+				<td>81.1</td>
+				<td>16</td>
+				<td>83.8</td>
+				<td>24</td>
+				<td>78.3</td>
+				<td>28</td>
+				<td>71.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/23px-Flag_of_Portugal.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>21</td>
+				<td>81.1</td>
+				<td>14</td>
+				<td>83.9</td>
+				<td>27</td>
+				<td>78.2</td>
+				<td>21</td>
+				<td>71.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/23px-Flag_of_Germany.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>24</td>
+				<td>81.0</td>
+				<td>23</td>
+				<td>83.4</td>
+				<td>21</td>
+				<td>78.7</td>
+				<td>23</td>
+				<td>71.3</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/23px-Flag_of_Greece.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>24</td>
+				<td>81.0</td>
+				<td>20</td>
+				<td>83.6</td>
+				<td>24</td>
+				<td>78.3</td>
+				<td>15</td>
+				<td>71.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Flag_of_Slovenia.svg/23px-Flag_of_Slovenia.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>26</td>
+				<td>80.8</td>
+				<td>17</td>
+				<td>83.7</td>
+				<td>28</td>
+				<td>77.9</td>
+				<td>26</td>
+				<td>71.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/20px-Flag_of_Denmark.svg.png" width="20" height="15" >&nbsp;</td>
+				<td>27</td>
+				<td>80.6</td>
+				<td>29</td>
+				<td>82.5</td>
+				<td>22</td>
+				<td>78.6</td>
+				<td>25</td>
+				<td>71.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Cyprus.svg/23px-Flag_of_Cyprus.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>28</td>
+				<td>80.5</td>
+				<td>28</td>
+				<td>82.7</td>
+				<td>24</td>
+				<td>78.3</td>
+				<td>23</td>
+				<td>71.3</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Flag_of_Chile.svg/23px-Flag_of_Chile.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>28</td>
+				<td>80.5</td>
+				<td>23</td>
+				<td>83.4</td>
+				<td>29</td>
+				<td>77.4</td>
+				<td>29</td>
+				<td>70.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/23px-Flag_of_Costa_Rica.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>30</td>
+				<td>79.6</td>
+				<td>30</td>
+				<td>82.2</td>
+				<td>31</td>
+				<td>77.1</td>
+				<td>31</td>
+				<td>69.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/23px-Flag_of_the_United_States.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>31</td>
+				<td>79.3</td>
+				<td>33</td>
+				<td>81.6</td>
+				<td>32</td>
+				<td>76.9</td>
+				<td>36</td>
+				<td>69.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Flag_of_Cuba.svg/23px-Flag_of_Cuba.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>32</td>
+				<td>79.1</td>
+				<td>34</td>
+				<td>81.4</td>
+				<td>32</td>
+				<td>76.9</td>
+				<td>35</td>
+				<td>69.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_Czech_Republic.svg/23px-Flag_of_the_Czech_Republic.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>33</td>
+				<td>78.8</td>
+				<td>32</td>
+				<td>81.7</td>
+				<td>38</td>
+				<td>75.9</td>
+				<td>33</td>
+				<td>69.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Maldives.svg/23px-Flag_of_Maldives.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>34</td>
+				<td>78.5</td>
+				<td>41</td>
+				<td>80.2</td>
+				<td>32</td>
+				<td>76.9</td>
+				<td>32</td>
+				<td>69.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/23px-Flag_of_Qatar.svg.png" width="23" height="9" >&nbsp;</td>
+				<td>35</td>
+				<td>78.2</td>
+				<td>43</td>
+				<td>80.0</td>
+				<td>29</td>
+				<td>77.4</td>
+				<td>47</td>
+				<td>67.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/23px-Flag_of_Croatia.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>36</td>
+				<td>78.0</td>
+				<td>36</td>
+				<td>81.2</td>
+				<td>42</td>
+				<td>74.7</td>
+				<td>33</td>
+				<td>69.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/21px-Flag_of_Albania.svg.png" width="21" height="15" >&nbsp;</td>
+				<td>37</td>
+				<td>77.8</td>
+				<td>38</td>
+				<td>80.7</td>
+				<td>39</td>
+				<td>75.1</td>
+				<td>38</td>
+				<td>68.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/23px-Flag_of_Panama.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>37</td>
+				<td>77.8</td>
+				<td>37</td>
+				<td>81.1</td>
+				<td>42</td>
+				<td>74.7</td>
+				<td>42</td>
+				<td>68.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Brunei.svg/23px-Flag_of_Brunei.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>39</td>
+				<td>77.7</td>
+				<td>47</td>
+				<td>79.2</td>
+				<td>36</td>
+				<td>76.3</td>
+				<td>29</td>
+				<td>70.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flag_of_Estonia.svg/23px-Flag_of_Estonia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>40</td>
+				<td>77.6</td>
+				<td>31</td>
+				<td>82.0</td>
+				<td>65</td>
+				<td>72.7</td>
+				<td>37</td>
+				<td>68.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/23px-Flag_of_Poland.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>41</td>
+				<td>77.5</td>
+				<td>35</td>
+				<td>81.3</td>
+				<td>52</td>
+				<td>73.6</td>
+				<td>39</td>
+				<td>68.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Flag_of_Bosnia_and_Herzegovina.svg/23px-Flag_of_Bosnia_and_Herzegovina.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>42</td>
+				<td>77.4</td>
+				<td>45</td>
+				<td>79.7</td>
+				<td>40</td>
+				<td>75.0</td>
+				<td>40</td>
+				<td>68.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/23px-Flag_of_the_United_Arab_Emirates.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>43</td>
+				<td>77.1</td>
+				<td>57</td>
+				<td>78.6</td>
+				<td>35</td>
+				<td>76.4</td>
+				<td>44</td>
+				<td>67.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/23px-Flag_of_Uruguay.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>44</td>
+				<td>77.0</td>
+				<td>40</td>
+				<td>80.4</td>
+				<td>56</td>
+				<td>73.3</td>
+				<td>44</td>
+				<td>67.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Bahrain.svg/23px-Flag_of_Bahrain.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>45</td>
+				<td>76.9</td>
+				<td>71</td>
+				<td>77.9</td>
+				<td>37</td>
+				<td>76.2</td>
+				<td>55</td>
+				<td>67.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/23px-Flag_of_Mexico.svg.png" width="23" height="13" >&nbsp;</td>
+				<td>46</td>
+				<td>76.7</td>
+				<td>46</td>
+				<td>79.5</td>
+				<td>48</td>
+				<td>73.9</td>
+				<td>52</td>
+				<td>67.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Slovakia.svg/23px-Flag_of_Slovakia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>46</td>
+				<td>76.7</td>
+				<td>41</td>
+				<td>80.2</td>
+				<td>62</td>
+				<td>72.9</td>
+				<td>42</td>
+				<td>68.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Oman.svg/23px-Flag_of_Oman.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>48</td>
+				<td>76.6</td>
+				<td>47</td>
+				<td>79.2</td>
+				<td>40</td>
+				<td>75.0</td>
+				<td>63</td>
+				<td>66.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/89/Flag_of_Antigua_and_Barbuda.svg/23px-Flag_of_Antigua_and_Barbuda.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>49</td>
+				<td>76.4</td>
+				<td>57</td>
+				<td>78.6</td>
+				<td>46</td>
+				<td>74.1</td>
+				<td>50</td>
+				<td>67.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/23px-Flag_of_Argentina.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>50</td>
+				<td>76.3</td>
+				<td>44</td>
+				<td>79.9</td>
+				<td>65</td>
+				<td>72.7</td>
+				<td>49</td>
+				<td>67.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Jamaica.svg/23px-Flag_of_Jamaica.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>51</td>
+				<td>76.2</td>
+				<td>57</td>
+				<td>78.6</td>
+				<td>48</td>
+				<td>73.9</td>
+				<td>58</td>
+				<td>66.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/23px-Flag_of_Ecuador.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>51</td>
+				<td>76.2</td>
+				<td>53</td>
+				<td>79.0</td>
+				<td>53</td>
+				<td>73.5</td>
+				<td>55</td>
+				<td>67.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/23px-Flag_of_the_People%27s_Republic_of_China.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>53</td>
+				<td>76.1</td>
+				<td>80</td>
+				<td>77.6</td>
+				<td>44</td>
+				<td>74.6</td>
+				<td>41</td>
+				<td>68.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/64/Flag_of_Montenegro.svg/23px-Flag_of_Montenegro.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>53</td>
+				<td>76.1</td>
+				<td>65</td>
+				<td>78.1</td>
+				<td>46</td>
+				<td>74.1</td>
+				<td>44</td>
+				<td>67.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/93/Flag_of_the_Bahamas.svg/23px-Flag_of_the_Bahamas.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>53</td>
+				<td>76.1</td>
+				<td>50</td>
+				<td>79.1</td>
+				<td>62</td>
+				<td>72.9</td>
+				<td>65</td>
+				<td>66.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/23px-Flag_of_Vietnam.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>56</td>
+				<td>76.0</td>
+				<td>38</td>
+				<td>80.7</td>
+				<td>81</td>
+				<td>71.3</td>
+				<td>65</td>
+				<td>66.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/23px-Flag_of_Hungary.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>57</td>
+				<td>75.9</td>
+				<td>50</td>
+				<td>79.1</td>
+				<td>71</td>
+				<td>72.3</td>
+				<td>52</td>
+				<td>67.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/23px-Flag_of_Turkey.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>58</td>
+				<td>75.8</td>
+				<td>54</td>
+				<td>78.9</td>
+				<td>68</td>
+				<td>72.6</td>
+				<td>73</td>
+				<td>66.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Flag_of_Macedonia.svg/23px-Flag_of_Macedonia.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>59</td>
+				<td>75.7</td>
+				<td>76</td>
+				<td>77.8</td>
+				<td>53</td>
+				<td>73.5</td>
+				<td>50</td>
+				<td>67.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Algeria.svg/23px-Flag_of_Algeria.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>60</td>
+				<td>75.6</td>
+				<td>81</td>
+				<td>77.5</td>
+				<td>50</td>
+				<td>73.8</td>
+				<td>75</td>
+				<td>66.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/23px-Flag_of_Serbia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>60</td>
+				<td>75.6</td>
+				<td>61</td>
+				<td>78.4</td>
+				<td>62</td>
+				<td>72.9</td>
+				<td>47</td>
+				<td>67.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/23px-Flag_of_Iran.svg.png" width="23" height="13" >&nbsp;</td>
+				<td>62</td>
+				<td>75.5</td>
+				<td>86</td>
+				<td>76.6</td>
+				<td>45</td>
+				<td>74.5</td>
+				<td>65</td>
+				<td>66.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/23px-Flag_of_Peru.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>62</td>
+				<td>75.5</td>
+				<td>66</td>
+				<td>78.0</td>
+				<td>59</td>
+				<td>73.1</td>
+				<td>80</td>
+				<td>65.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Flag_of_Barbados.svg/23px-Flag_of_Barbados.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>62</td>
+				<td>75.5</td>
+				<td>71</td>
+				<td>77.9</td>
+				<td>59</td>
+				<td>73.1</td>
+				<td>65</td>
+				<td>66.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/23px-Flag_of_Tunisia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>65</td>
+				<td>75.3</td>
+				<td>76</td>
+				<td>77.8</td>
+				<td>61</td>
+				<td>73.0</td>
+				<td>63</td>
+				<td>66.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Saint_Lucia.svg/23px-Flag_of_Saint_Lucia.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>66</td>
+				<td>75.2</td>
+				<td>71</td>
+				<td>77.9</td>
+				<td>68</td>
+				<td>72.6</td>
+				<td>74</td>
+				<td>66.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/66/Flag_of_Malaysia.svg/23px-Flag_of_Malaysia.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>67</td>
+				<td>75.0</td>
+				<td>83</td>
+				<td>77.3</td>
+				<td>65</td>
+				<td>72.7</td>
+				<td>70</td>
+				<td>66.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Romania.svg/23px-Flag_of_Romania.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>67</td>
+				<td>75.0</td>
+				<td>55</td>
+				<td>78.8</td>
+				<td>78</td>
+				<td>71.4</td>
+				<td>59</td>
+				<td>66.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/22px-Flag_of_Brazil.svg.png" width="22" height="15" >&nbsp;</td>
+				<td>67</td>
+				<td>75.0</td>
+				<td>56</td>
+				<td>78.7</td>
+				<td>78</td>
+				<td>71.4</td>
+				<td>81</td>
+				<td>65.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/5/59/Flag_of_Lebanon.svg/23px-Flag_of_Lebanon.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>70</td>
+				<td>74.9</td>
+				<td>87</td>
+				<td>76.5</td>
+				<td>53</td>
+				<td>73.5</td>
+				<td>79</td>
+				<td>65.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/23px-Flag_of_Thailand.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>70</td>
+				<td>74.9</td>
+				<td>66</td>
+				<td>78.0</td>
+				<td>74</td>
+				<td>71.9</td>
+				<td>59</td>
+				<td>66.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Sri_Lanka.svg/23px-Flag_of_Sri_Lanka.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>70</td>
+				<td>74.9</td>
+				<td>63</td>
+				<td>78.3</td>
+				<td>75</td>
+				<td>71.6</td>
+				<td>55</td>
+				<td>67.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/23px-Flag_of_Armenia.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>73</td>
+				<td>74.8</td>
+				<td>79</td>
+				<td>77.7</td>
+				<td>75</td>
+				<td>71.6</td>
+				<td>59</td>
+				<td>66.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Nicaragua.svg/23px-Flag_of_Nicaragua.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>73</td>
+				<td>74.8</td>
+				<td>71</td>
+				<td>77.9</td>
+				<td>77</td>
+				<td>71.5</td>
+				<td>103</td>
+				<td>63.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/23px-Flag_of_Colombia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>73</td>
+				<td>74.8</td>
+				<td>61</td>
+				<td>78.4</td>
+				<td>84</td>
+				<td>71.2</td>
+				<td>85</td>
+				<td>65.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Flag_of_Kuwait.svg/23px-Flag_of_Kuwait.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>76</td>
+				<td>74.7</td>
+				<td>93</td>
+				<td>76.0</td>
+				<td>51</td>
+				<td>73.7</td>
+				<td>78</td>
+				<td>65.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/82/Flag_of_Honduras.svg/23px-Flag_of_Honduras.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>77</td>
+				<td>74.6</td>
+				<td>85</td>
+				<td>77.0</td>
+				<td>71</td>
+				<td>72.3</td>
+				<td>90</td>
+				<td>64.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Mauritius.svg/23px-Flag_of_Mauritius.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>77</td>
+				<td>74.6</td>
+				<td>76</td>
+				<td>77.8</td>
+				<td>78</td>
+				<td>71.4</td>
+				<td>59</td>
+				<td>66.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Latvia.svg/23px-Flag_of_Latvia.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>77</td>
+				<td>74.6</td>
+				<td>47</td>
+				<td>79.2</td>
+				<td>95</td>
+				<td>69.6</td>
+				<td>54</td>
+				<td>67.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/23px-Flag_of_Saudi_Arabia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>80</td>
+				<td>74.5</td>
+				<td>93</td>
+				<td>76.0</td>
+				<td>58</td>
+				<td>73.2</td>
+				<td>96</td>
+				<td>64.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Bulgaria.svg/23px-Flag_of_Bulgaria.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>80</td>
+				<td>74.5</td>
+				<td>66</td>
+				<td>78.0</td>
+				<td>86</td>
+				<td>71.1</td>
+				<td>72</td>
+				<td>66.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Georgia.svg/23px-Flag_of_Georgia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>82</td>
+				<td>74.4</td>
+				<td>63</td>
+				<td>78.3</td>
+				<td>91</td>
+				<td>70.3</td>
+				<td>70</td>
+				<td>66.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/23px-Flag_of_Morocco.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>83</td>
+				<td>74.3</td>
+				<td>99</td>
+				<td>75.4</td>
+				<td>56</td>
+				<td>73.3</td>
+				<td>90</td>
+				<td>64.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Flag_of_Jordan.svg/23px-Flag_of_Jordan.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>84</td>
+				<td>74.1</td>
+				<td>96</td>
+				<td>75.9</td>
+				<td>70</td>
+				<td>72.5</td>
+				<td>88</td>
+				<td>65.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/23px-Flag_of_Venezuela.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>84</td>
+				<td>74.1</td>
+				<td>60</td>
+				<td>78.5</td>
+				<td>94</td>
+				<td>70.0</td>
+				<td>83</td>
+				<td>65.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Paraguay.svg/23px-Flag_of_Paraguay.svg.png" width="23" height="13" >&nbsp;</td>
+				<td>86</td>
+				<td>74.0</td>
+				<td>93</td>
+				<td>76.0</td>
+				<td>73</td>
+				<td>72.2</td>
+				<td>83</td>
+				<td>65.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Samoa.svg/23px-Flag_of_Samoa.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>86</td>
+				<td>74.0</td>
+				<td>81</td>
+				<td>77.5</td>
+				<td>87</td>
+				<td>70.9</td>
+				<td>65</td>
+				<td>66.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_the_Dominican_Republic.svg/23px-Flag_of_the_Dominican_Republic.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>88</td>
+				<td>73.9</td>
+				<td>84</td>
+				<td>77.1</td>
+				<td>87</td>
+				<td>70.9</td>
+				<td>85</td>
+				<td>65.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Grenada.svg/23px-Flag_of_Grenada.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>89</td>
+				<td>73.6</td>
+				<td>91</td>
+				<td>76.1</td>
+				<td>84</td>
+				<td>71.2</td>
+				<td>88</td>
+				<td>65.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Lithuania.svg/23px-Flag_of_Lithuania.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>89</td>
+				<td>73.6</td>
+				<td>50</td>
+				<td>79.1</td>
+				<td>104</td>
+				<td>68.1</td>
+				<td>75</td>
+				<td>66.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Tonga.svg/23px-Flag_of_Tonga.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>91</td>
+				<td>73.5</td>
+				<td>88</td>
+				<td>76.4</td>
+				<td>89</td>
+				<td>70.6</td>
+				<td>75</td>
+				<td>66.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_El_Salvador.svg/23px-Flag_of_El_Salvador.svg.png" width="23" height="13" >&nbsp;</td>
+				<td>91</td>
+				<td>73.5</td>
+				<td>71</td>
+				<td>77.9</td>
+				<td>99</td>
+				<td>68.8</td>
+				<td>98</td>
+				<td>64.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Cape_Verde.svg/23px-Flag_of_Cape_Verde.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>93</td>
+				<td>73.3</td>
+				<td>103</td>
+				<td>75.0</td>
+				<td>81</td>
+				<td>71.3</td>
+				<td>97</td>
+				<td>64.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Flag_of_Saint_Vincent_and_the_Grenadines.svg/23px-Flag_of_Saint_Vincent_and_the_Grenadines.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>94</td>
+				<td>73.2</td>
+				<td>100</td>
+				<td>75.2</td>
+				<td>81</td>
+				<td>71.3</td>
+				<td>94</td>
+				<td>64.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Seychelles.svg/23px-Flag_of_Seychelles.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>94</td>
+				<td>73.2</td>
+				<td>66</td>
+				<td>78.0</td>
+				<td>98</td>
+				<td>69.1</td>
+				<td>81</td>
+				<td>65.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Libya.svg/23px-Flag_of_Libya.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>96</td>
+				<td>72.7</td>
+				<td>98</td>
+				<td>75.6</td>
+				<td>92</td>
+				<td>70.1</td>
+				<td>101</td>
+				<td>63.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/23px-Flag_of_Azerbaijan.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>96</td>
+				<td>72.7</td>
+				<td>97</td>
+				<td>75.8</td>
+				<td>95</td>
+				<td>69.6</td>
+				<td>93</td>
+				<td>64.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/23px-Flag_of_Belarus.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>98</td>
+				<td>72.3</td>
+				<td>66</td>
+				<td>78.0</td>
+				<td>119</td>
+				<td>66.5</td>
+				<td>85</td>
+				<td>65.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Moldova.svg/23px-Flag_of_Moldova.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>99</td>
+				<td>72.1</td>
+				<td>90</td>
+				<td>76.2</td>
+				<td>106</td>
+				<td>67.9</td>
+				<td>92</td>
+				<td>64.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Vanuatu.svg/23px-Flag_of_Vanuatu.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>100</td>
+				<td>72.0</td>
+				<td>107</td>
+				<td>74.0</td>
+				<td>92</td>
+				<td>70.1</td>
+				<td>94</td>
+				<td>64.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Flag_of_Guatemala.svg/23px-Flag_of_Guatemala.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>101</td>
+				<td>71.9</td>
+				<td>100</td>
+				<td>75.2</td>
+				<td>102</td>
+				<td>68.5</td>
+				<td>116</td>
+				<td>62.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/23px-Flag_of_Bangladesh.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>102</td>
+				<td>71.8</td>
+				<td>113</td>
+				<td>73.1</td>
+				<td>89</td>
+				<td>70.6</td>
+				<td>111</td>
+				<td>62.3</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/23px-Flag_of_Suriname.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>103</td>
+				<td>71.6</td>
+				<td>105</td>
+				<td>74.7</td>
+				<td>101</td>
+				<td>68.6</td>
+				<td>107</td>
+				<td>63.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/23px-Flag_of_Ukraine.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>104</td>
+				<td>71.3</td>
+				<td>91</td>
+				<td>76.1</td>
+				<td>120</td>
+				<td>66.3</td>
+				<td>98</td>
+				<td>64.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/64/Flag_of_Trinidad_and_Tobago.svg/23px-Flag_of_Trinidad_and_Tobago.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>105</td>
+				<td>71.2</td>
+				<td>104</td>
+				<td>74.8</td>
+				<td>106</td>
+				<td>67.9</td>
+				<td>104</td>
+				<td>63.3</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/23px-Flag_of_Kyrgyzstan.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>106</td>
+				<td>71.1</td>
+				<td>102</td>
+				<td>75.1</td>
+				<td>111</td>
+				<td>67.2</td>
+				<td>101</td>
+				<td>63.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/23px-Flag_of_Egypt.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>107</td>
+				<td>70.9</td>
+				<td>111</td>
+				<td>73.2</td>
+				<td>99</td>
+				<td>68.8</td>
+				<td>113</td>
+				<td>62.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Bolivia.svg/22px-Flag_of_Bolivia.svg.png" width="22" height="15" >&nbsp;</td>
+				<td>108</td>
+				<td>70.7</td>
+				<td>110</td>
+				<td>73.3</td>
+				<td>103</td>
+				<td>68.2</td>
+				<td>113</td>
+				<td>62.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/5/51/Flag_of_North_Korea.svg/23px-Flag_of_North_Korea.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>109</td>
+				<td>70.6</td>
+				<td>107</td>
+				<td>74.0</td>
+				<td>113</td>
+				<td>67.0</td>
+				<td>100</td>
+				<td>64.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/23px-Flag_of_Russia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>110</td>
+				<td>70.5</td>
+				<td>89</td>
+				<td>76.3</td>
+				<td>127</td>
+				<td>64.7</td>
+				<td>104</td>
+				<td>63.3</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Flag_of_Kazakhstan.svg/23px-Flag_of_Kazakhstan.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>111</td>
+				<td>70.2</td>
+				<td>105</td>
+				<td>74.7</td>
+				<td>123</td>
+				<td>65.7</td>
+				<td>104</td>
+				<td>63.3</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Flag_of_Belize.svg/23px-Flag_of_Belize.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>112</td>
+				<td>70.1</td>
+				<td>113</td>
+				<td>73.1</td>
+				<td>110</td>
+				<td>67.5</td>
+				<td>111</td>
+				<td>62.3</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Fiji.svg/23px-Flag_of_Fiji.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>113</td>
+				<td>69.9</td>
+				<td>113</td>
+				<td>73.1</td>
+				<td>113</td>
+				<td>67.0</td>
+				<td>108</td>
+				<td>62.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/91/Flag_of_Bhutan.svg/23px-Flag_of_Bhutan.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>114</td>
+				<td>69.8</td>
+				<td>126</td>
+				<td>70.1</td>
+				<td>97</td>
+				<td>69.5</td>
+				<td>120</td>
+				<td>61.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Tajikistan.svg/23px-Flag_of_Tajikistan.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>115</td>
+				<td>69.7</td>
+				<td>109</td>
+				<td>73.6</td>
+				<td>116</td>
+				<td>66.6</td>
+				<td>116</td>
+				<td>62.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Flag_of_the_Federated_States_of_Micronesia.svg/23px-Flag_of_the_Federated_States_of_Micronesia.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>116</td>
+				<td>69.4</td>
+				<td>124</td>
+				<td>70.6</td>
+				<td>104</td>
+				<td>68.1</td>
+				<td>109</td>
+				<td>62.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Uzbekistan.svg/23px-Flag_of_Uzbekistan.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>116</td>
+				<td>69.4</td>
+				<td>116</td>
+				<td>72.7</td>
+				<td>122</td>
+				<td>66.1</td>
+				<td>110</td>
+				<td>62.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/74/Flag_of_the_Solomon_Islands.svg/23px-Flag_of_the_Solomon_Islands.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>118</td>
+				<td>69.2</td>
+				<td>121</td>
+				<td>70.8</td>
+				<td>106</td>
+				<td>67.9</td>
+				<td>116</td>
+				<td>62.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Flag_of_Nepal.svg/16px-Flag_of_Nepal.svg.png" width="16" height="20" data-file-width="726" data-file-height="885">&nbsp;&nbsp;&nbsp;</td>
+				<td>118</td>
+				<td>69.2</td>
+				<td>121</td>
+				<td>70.8</td>
+				<td>109</td>
+				<td>67.7</td>
+				<td>121</td>
+				<td>61.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/23px-Flag_of_Indonesia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>120</td>
+				<td>69.1</td>
+				<td>119</td>
+				<td>71.2</td>
+				<td>112</td>
+				<td>67.1</td>
+				<td>113</td>
+				<td>62.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Flag_of_Iraq.svg/23px-Flag_of_Iraq.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>121</td>
+				<td>68.9</td>
+				<td>118</td>
+				<td>71.8</td>
+				<td>121</td>
+				<td>66.2</td>
+				<td>124</td>
+				<td>60.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Mongolia.svg/23px-Flag_of_Mongolia.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>122</td>
+				<td>68.8</td>
+				<td>111</td>
+				<td>73.2</td>
+				<td>127</td>
+				<td>64.7</td>
+				<td>119</td>
+				<td>62.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_Cambodia.svg/23px-Flag_of_Cambodia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>123</td>
+				<td>68.7</td>
+				<td>123</td>
+				<td>70.7</td>
+				<td>116</td>
+				<td>66.6</td>
+				<td>130</td>
+				<td>58.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_the_Philippines.svg/23px-Flag_of_the_Philippines.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>124</td>
+				<td>68.5</td>
+				<td>117</td>
+				<td>72.0</td>
+				<td>126</td>
+				<td>65.3</td>
+				<td>121</td>
+				<td>61.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/23px-Flag_of_India.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>125</td>
+				<td>68.3</td>
+				<td>128</td>
+				<td>69.9</td>
+				<td>115</td>
+				<td>66.9</td>
+				<td>126</td>
+				<td>59.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/26/Flag_of_East_Timor.svg/23px-Flag_of_East_Timor.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>125</td>
+				<td>68.3</td>
+				<td>126</td>
+				<td>70.1</td>
+				<td>116</td>
+				<td>66.6</td>
+				<td>123</td>
+				<td>60.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Sao_Tome_and_Principe.svg/23px-Flag_of_Sao_Tome_and_Principe.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>127</td>
+				<td>67.5</td>
+				<td>130</td>
+				<td>69.4</td>
+				<td>124</td>
+				<td>65.6</td>
+				<td>128</td>
+				<td>59.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/23px-Flag_of_Senegal.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>128</td>
+				<td>66.7</td>
+				<td>132</td>
+				<td>68.6</td>
+				<td>130</td>
+				<td>64.6</td>
+				<td>132</td>
+				<td>58.3</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Flag_of_Myanmar.svg/23px-Flag_of_Myanmar.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>129</td>
+				<td>66.6</td>
+				<td>133</td>
+				<td>68.5</td>
+				<td>130</td>
+				<td>64.6</td>
+				<td>127</td>
+				<td>59.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/32/Flag_of_Pakistan.svg/23px-Flag_of_Pakistan.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>130</td>
+				<td>66.4</td>
+				<td>137</td>
+				<td>67.5</td>
+				<td>125</td>
+				<td>65.5</td>
+				<td>134</td>
+				<td>57.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Flag_of_Kiribati.svg/23px-Flag_of_Kiribati.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>131</td>
+				<td>66.3</td>
+				<td>131</td>
+				<td>68.8</td>
+				<td>136</td>
+				<td>63.7</td>
+				<td>128</td>
+				<td>59.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Turkmenistan.svg/23px-Flag_of_Turkmenistan.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>131</td>
+				<td>66.3</td>
+				<td>125</td>
+				<td>70.5</td>
+				<td>143</td>
+				<td>62.2</td>
+				<td>125</td>
+				<td>59.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_Guyana.svg/23px-Flag_of_Guyana.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>133</td>
+				<td>66.2</td>
+				<td>133</td>
+				<td>68.5</td>
+				<td>134</td>
+				<td>63.9</td>
+				<td>130</td>
+				<td>58.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Rwanda.svg/23px-Flag_of_Rwanda.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>134</td>
+				<td>66.1</td>
+				<td>120</td>
+				<td>71.1</td>
+				<td>150</td>
+				<td>60.9</td>
+				<td>140</td>
+				<td>56.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/04/Flag_of_Gabon.svg/20px-Flag_of_Gabon.svg.png" width="20" height="15" >&nbsp;</td>
+				<td>135</td>
+				<td>66.0</td>
+				<td>138</td>
+				<td>67.2</td>
+				<td>127</td>
+				<td>64.7</td>
+				<td>137</td>
+				<td>57.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Namibia.svg/23px-Flag_of_Namibia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>136</td>
+				<td>65.8</td>
+				<td>135</td>
+				<td>68.3</td>
+				<td>139</td>
+				<td>63.1</td>
+				<td>136</td>
+				<td>57.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/89/Flag_of_Yemen.svg/23px-Flag_of_Yemen.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>137</td>
+				<td>65.7</td>
+				<td>138</td>
+				<td>67.2</td>
+				<td>132</td>
+				<td>64.3</td>
+				<td>135</td>
+				<td>57.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Laos.svg/23px-Flag_of_Laos.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>137</td>
+				<td>65.7</td>
+				<td>138</td>
+				<td>67.2</td>
+				<td>133</td>
+				<td>64.1</td>
+				<td>133</td>
+				<td>57.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_Botswana.svg/23px-Flag_of_Botswana.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>137</td>
+				<td>65.7</td>
+				<td>136</td>
+				<td>68.1</td>
+				<td>137</td>
+				<td>63.3</td>
+				<td>138</td>
+				<td>56.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Madagascar.svg/23px-Flag_of_Madagascar.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>140</td>
+				<td>65.5</td>
+				<td>141</td>
+				<td>67.0</td>
+				<td>134</td>
+				<td>63.9</td>
+				<td>138</td>
+				<td>56.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/71/Flag_of_Ethiopia.svg/23px-Flag_of_Ethiopia.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>141</td>
+				<td>64.8</td>
+				<td>143</td>
+				<td>66.8</td>
+				<td>140</td>
+				<td>62.8</td>
+				<td>143</td>
+				<td>56.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_the_Republic_of_the_Congo.svg/23px-Flag_of_the_Republic_of_the_Congo.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>142</td>
+				<td>64.7</td>
+				<td>144</td>
+				<td>66.3</td>
+				<td>138</td>
+				<td>63.2</td>
+				<td>140</td>
+				<td>56.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flag_of_Eritrea.svg/23px-Flag_of_Eritrea.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>142</td>
+				<td>64.7</td>
+				<td>141</td>
+				<td>67.0</td>
+				<td>141</td>
+				<td>62.4</td>
+				<td>145</td>
+				<td>55.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/5/53/Flag_of_Syria.svg/23px-Flag_of_Syria.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>144</td>
+				<td>64.5</td>
+				<td>128</td>
+				<td>69.9</td>
+				<td>154</td>
+				<td>59.9</td>
+				<td>143</td>
+				<td>56.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_Sudan.svg/23px-Flag_of_Sudan.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>145</td>
+				<td>64.1</td>
+				<td>146</td>
+				<td>65.9</td>
+				<td>141</td>
+				<td>62.4</td>
+				<td>145</td>
+				<td>55.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/94/Flag_of_the_Comoros.svg/23px-Flag_of_the_Comoros.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>146</td>
+				<td>63.5</td>
+				<td>151</td>
+				<td>65.2</td>
+				<td>144</td>
+				<td>61.9</td>
+				<td>145</td>
+				<td>55.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_Djibouti.svg/23px-Flag_of_Djibouti.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>146</td>
+				<td>63.5</td>
+				<td>150</td>
+				<td>65.3</td>
+				<td>145</td>
+				<td>61.8</td>
+				<td>148</td>
+				<td>55.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Haiti.svg/23px-Flag_of_Haiti.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>146</td>
+				<td>63.5</td>
+				<td>148</td>
+				<td>65.5</td>
+				<td>147</td>
+				<td>61.5</td>
+				<td>150</td>
+				<td>55.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Kenya.svg/23px-Flag_of_Kenya.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>149</td>
+				<td>63.4</td>
+				<td>147</td>
+				<td>65.8</td>
+				<td>148</td>
+				<td>61.1</td>
+				<td>149</td>
+				<td>55.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/43/Flag_of_Mauritania.svg/23px-Flag_of_Mauritania.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>150</td>
+				<td>63.1</td>
+				<td>153</td>
+				<td>64.6</td>
+				<td>146</td>
+				<td>61.6</td>
+				<td>152</td>
+				<td>55.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Flag_of_Papua_New_Guinea.svg/20px-Flag_of_Papua_New_Guinea.svg.png" width="20" height="15" >&nbsp;</td>
+				<td>151</td>
+				<td>62.9</td>
+				<td>149</td>
+				<td>65.4</td>
+				<td>152</td>
+				<td>60.6</td>
+				<td>142</td>
+				<td>56.4</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/23px-Flag_of_South_Africa.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>151</td>
+				<td>62.9</td>
+				<td>145</td>
+				<td>66.2</td>
+				<td>158</td>
+				<td>59.3</td>
+				<td>153</td>
+				<td>54.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/23px-Flag_of_Ghana.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>153</td>
+				<td>62.4</td>
+				<td>155</td>
+				<td>63.9</td>
+				<td>149</td>
+				<td>61.0</td>
+				<td>151</td>
+				<td>55.3</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flag_of_Uganda.svg/23px-Flag_of_Uganda.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>154</td>
+				<td>62.3</td>
+				<td>154</td>
+				<td>64.3</td>
+				<td>153</td>
+				<td>60.3</td>
+				<td>156</td>
+				<td>54.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Flag_of_Niger.svg/18px-Flag_of_Niger.svg.png" width="18" height="15" >&nbsp;</td>
+				<td>155</td>
+				<td>61.8</td>
+				<td>158</td>
+				<td>62.8</td>
+				<td>150</td>
+				<td>60.9</td>
+				<td>154</td>
+				<td>54.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tanzania.svg/23px-Flag_of_Tanzania.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>155</td>
+				<td>61.8</td>
+				<td>156</td>
+				<td>63.8</td>
+				<td>154</td>
+				<td>59.9</td>
+				<td>155</td>
+				<td>54.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Zambia.svg/23px-Flag_of_Zambia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>155</td>
+				<td>61.8</td>
+				<td>152</td>
+				<td>64.7</td>
+				<td>161</td>
+				<td>59.0</td>
+				<td>158</td>
+				<td>53.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Flag_of_Liberia.svg/23px-Flag_of_Liberia.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>158</td>
+				<td>61.4</td>
+				<td>157</td>
+				<td>62.9</td>
+				<td>156</td>
+				<td>59.8</td>
+				<td>160</td>
+				<td>52.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_The_Gambia.svg/23px-Flag_of_The_Gambia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>159</td>
+				<td>61.1</td>
+				<td>159</td>
+				<td>62.5</td>
+				<td>156</td>
+				<td>59.8</td>
+				<td>157</td>
+				<td>53.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Flag_of_Zimbabwe.svg/23px-Flag_of_Zimbabwe.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>160</td>
+				<td>60.7</td>
+				<td>160</td>
+				<td>62.3</td>
+				<td>161</td>
+				<td>59.0</td>
+				<td>163</td>
+				<td>52.3</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Afghanistan.svg/23px-Flag_of_Afghanistan.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>161</td>
+				<td>60.5</td>
+				<td>161</td>
+				<td>61.9</td>
+				<td>158</td>
+				<td>59.3</td>
+				<td>164</td>
+				<td>52.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Benin.svg/23px-Flag_of_Benin.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>162</td>
+				<td>60.0</td>
+				<td>164</td>
+				<td>61.1</td>
+				<td>163</td>
+				<td>58.8</td>
+				<td>162</td>
+				<td>52.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Burkina_Faso.svg/23px-Flag_of_Burkina_Faso.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>163</td>
+				<td>59.9</td>
+				<td>167</td>
+				<td>60.5</td>
+				<td>160</td>
+				<td>59.1</td>
+				<td>161</td>
+				<td>52.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/68/Flag_of_Togo.svg/23px-Flag_of_Togo.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>163</td>
+				<td>59.9</td>
+				<td>164</td>
+				<td>61.1</td>
+				<td>164</td>
+				<td>58.6</td>
+				<td>159</td>
+				<td>52.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_of_the_Democratic_Republic_of_the_Congo.svg/20px-Flag_of_the_Democratic_Republic_of_the_Congo.svg.png" width="20" height="15" >&nbsp;</td>
+				<td>165</td>
+				<td>59.8</td>
+				<td>163</td>
+				<td>61.5</td>
+				<td>165</td>
+				<td>58.3</td>
+				<td>166</td>
+				<td>51.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Burundi.svg/23px-Flag_of_Burundi.svg.png" width="23" height="14" >&nbsp;</td>
+				<td>166</td>
+				<td>59.6</td>
+				<td>162</td>
+				<td>61.6</td>
+				<td>168</td>
+				<td>57.7</td>
+				<td>164</td>
+				<td>52.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Flag_of_Guinea.svg/23px-Flag_of_Guinea.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>167</td>
+				<td>59.0</td>
+				<td>171</td>
+				<td>59.8</td>
+				<td>166</td>
+				<td>58.2</td>
+				<td>166</td>
+				<td>51.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_Guinea-Bissau.svg/23px-Flag_of_Guinea-Bissau.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>168</td>
+				<td>58.9</td>
+				<td>167</td>
+				<td>60.5</td>
+				<td>169</td>
+				<td>57.2</td>
+				<td>168</td>
+				<td>51.5</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Flag_of_Swaziland.svg/23px-Flag_of_Swaziland.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>168</td>
+				<td>58.9</td>
+				<td>164</td>
+				<td>61.1</td>
+				<td>171</td>
+				<td>56.6</td>
+				<td>172</td>
+				<td>50.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Flag_of_Malawi.svg/23px-Flag_of_Malawi.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>170</td>
+				<td>58.3</td>
+				<td>170</td>
+				<td>59.9</td>
+				<td>170</td>
+				<td>56.7</td>
+				<td>169</td>
+				<td>51.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Mali.svg/23px-Flag_of_Mali.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>171</td>
+				<td>58.2</td>
+				<td>175</td>
+				<td>58.3</td>
+				<td>166</td>
+				<td>58.2</td>
+				<td>171</td>
+				<td>51.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Equatorial_Guinea.svg/23px-Flag_of_Equatorial_Guinea.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>171</td>
+				<td>58.2</td>
+				<td>169</td>
+				<td>60.0</td>
+				<td>171</td>
+				<td>56.6</td>
+				<td>169</td>
+				<td>51.2</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Mozambique.svg/23px-Flag_of_Mozambique.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>173</td>
+				<td>57.6</td>
+				<td>172</td>
+				<td>59.4</td>
+				<td>175</td>
+				<td>55.7</td>
+				<td>175</td>
+				<td>49.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Flag_of_South_Sudan.svg/23px-Flag_of_South_Sudan.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>174</td>
+				<td>57.3</td>
+				<td>173</td>
+				<td>58.6</td>
+				<td>173</td>
+				<td>56.1</td>
+				<td>174</td>
+				<td>49.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/23px-Flag_of_Cameroon.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>174</td>
+				<td>57.3</td>
+				<td>173</td>
+				<td>58.6</td>
+				<td>174</td>
+				<td>55.9</td>
+				<td>173</td>
+				<td>50.3</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Flag_of_Somalia.svg/23px-Flag_of_Somalia.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>176</td>
+				<td>55.0</td>
+				<td>176</td>
+				<td>56.6</td>
+				<td>176</td>
+				<td>53.5</td>
+				<td>176</td>
+				<td>47.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/23px-Flag_of_Nigeria.svg.png" width="23" height="12" >&nbsp;</td>
+				<td>177</td>
+				<td>54.5</td>
+				<td>177</td>
+				<td>55.6</td>
+				<td>177</td>
+				<td>53.4</td>
+				<td>177</td>
+				<td>47.7</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Flag_of_Lesotho.svg/23px-Flag_of_Lesotho.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>178</td>
+				<td>53.7</td>
+				<td>178</td>
+				<td>55.4</td>
+				<td>179</td>
+				<td>51.7</td>
+				<td>179</td>
+				<td>46.6</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_C%C3%B4te_d%27Ivoire.svg/23px-Flag_of_C%C3%B4te_d%27Ivoire.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>179</td>
+				<td>53.3</td>
+				<td>180</td>
+				<td>54.4</td>
+				<td>178</td>
+				<td>52.3</td>
+				<td>178</td>
+				<td>47.0</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Flag_of_Chad.svg/23px-Flag_of_Chad.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>180</td>
+				<td>53.1</td>
+				<td>179</td>
+				<td>54.5</td>
+				<td>179</td>
+				<td>51.7</td>
+				<td>180</td>
+				<td>46.1</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_of_the_Central_African_Republic.svg/23px-Flag_of_the_Central_African_Republic.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>181</td>
+				<td>52.5</td>
+				<td>181</td>
+				<td>54.1</td>
+				<td>181</td>
+				<td>50.9</td>
+				<td>181</td>
+				<td>45.9</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Flag_of_Angola.svg/23px-Flag_of_Angola.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>182</td>
+				<td>52.4</td>
+				<td>182</td>
+				<td>54.0</td>
+				<td>181</td>
+				<td>50.9</td>
+				<td>182</td>
+				<td>45.8</td>
+			</tr>
+			<tr>
+				<td align="left"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Sierra_Leone.svg/23px-Flag_of_Sierra_Leone.svg.png" width="23" height="15" >&nbsp;</td>
+				<td>183</td>
+				<td>50.1</td>
+				<td>183</td>
+				<td>50.8</td>
+				<td>183</td>
+				<td>49.3</td>
+				<td>183</td>
+				<td>44.4</td>
+			</tr>
+		</tbody><tfoot></tfoot></table>
+	</body>
+	</html>

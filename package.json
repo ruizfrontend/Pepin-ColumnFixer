@@ -13,5 +13,11 @@
     "columns"
   ],
   "author": "hola@davidruizlopez.es",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "demo": "node -e \"var serve = require('serve');serve(__dirname, { port: 1337, ignore: ['node_modules'] });\""
+  },
+  "devDependencies": {
+    "serve": "^6.5.2"
+  }
 }
