@@ -1,5 +1,5 @@
 # Pepin Column Fixer
-Simplify creatin fixed headers or columns with jQuery
+Simple fixed columns for your tables with jQuery
 
 ![Sample](https://raw.githubusercontent.com/ruizfrontend/Pepin-ColumnFixer/master/docs/sample.gif)
 
